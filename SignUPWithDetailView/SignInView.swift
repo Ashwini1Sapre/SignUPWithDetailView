@@ -132,11 +132,11 @@ struct SignInView: View {
                 {
                     Text("Sign IN")
                 }
-                .sheet(isPresented: self.$signUpIsPresent)
+              /*  .sheet(isPresented: self.$signUpIsPresent)
                     {
                     
                     ContentView()
-               }
+               }*/
                 
                 Button(action: {
                     Auth.auth().sendPasswordReset(withEmail: self.emailAddress)
@@ -171,6 +171,7 @@ struct SignInView: View {
                         Auth.auth().currentUser?.sendEmailVerification { (error) in
                             if let error = error {
                             self.errortext = error.localizedDescription
+                                print("\(self.errortext)")
                             return
                             }
                         self.ShowEmailAlert.toggle()
@@ -212,6 +213,7 @@ struct SignInView: View {
         if let error = error
             {
             self.errortext = error.localizedDescription
+            print("\(self.errortext)")
                 self.shouldAnimate = false
 
             return
