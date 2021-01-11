@@ -132,11 +132,11 @@ struct SignInView: View {
                 {
                     Text("Sign IN")
                 }
-              /*  .sheet(isPresented: self.$signUpIsPresent)
+                .sheet(isPresented: self.$signUpIsPresent)
                     {
                     
                     ContentView()
-               }*/
+               }
                 
                 Button(action: {
                     Auth.auth().sendPasswordReset(withEmail: self.emailAddress)
